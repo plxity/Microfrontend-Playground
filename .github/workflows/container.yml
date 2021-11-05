@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - master
       - testing-ci
     paths:
       - 'packages/container/**'
@@ -24,8 +25,7 @@ jobs:
       - uses: chrislennon/action-aws-cli@v1.1
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
-      - run: aws s3 sync dist s3://${‌{ secrets.AWS_S3_BUCKET_NAME }}/container/latest
+      - run: aws s3 sync dist s3://${{ secrets.AWS_S3_BUCKET_NAME }}/container/latest
         env:
-          ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
-          AWS_ACCESS_KEY_ID: ${‌{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${‌{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID}}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
