@@ -11,6 +11,7 @@ const generateClassname = createGenerateClassName({
   productionPrefix: 'au',
 });
 
+
 export default ({ history, onSignIn }) => {
   return (
     <div>

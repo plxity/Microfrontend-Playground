@@ -13,6 +13,7 @@ const DashboardLazy = lazy(() => import('./components/DashboardApp'));
 const generateClassname = createGenerateClassName({
   productionPrefix: 'ca',
 });
+
 const history = createBrowserHistory();
 export default () => {
   const [isSignedIn, setIsSignedIn] = useState(false);
